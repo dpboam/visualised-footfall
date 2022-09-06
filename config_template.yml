@@ -1,0 +1,54 @@
+sensors:
+  footfall-1-1.csv: Briggate
+  footfall-2-1.csv: Briggate at McDonalds
+#  footfall-3-1.csv: Headrow
+#  footfall-4-1.csv: Dortmund Square,
+#  footfall-5-1.csv: Albion Street North,
+#  footfall-6-1.csv: Albion Street South,
+#  footfall-7-1.csv: Commercial Street at Sharps,
+#  footfall-8-1.csv: Commercial Street at Barratts,
+#  footfall-9-1.csv: Albion Street at McDonalds,
+#  footfall-10-1.csv: Park Row,
+sDate: "2019-01-01"
+eDate: "2030-12-31"
+times:
+  - "00:00"
+  - "01:00"
+  - "02:00" 
+  - "03:00"
+  - "04:00"
+  - "05:00"
+  - "06:00"
+  - "07:00"
+  - "08:00"
+  - "09:00"
+  - "10:00"
+  - "11:00"
+  - "12:00"
+  - "13:00"
+  - "14:00"
+  - "15:00"
+  - "16:00"
+  - "17:00"
+  - "18:00"
+  - "19:00"
+  - "20:00"
+  - "21:00"
+  - "22:00"
+  - "23:00"
+months_exclude: []
+#  - 1
+#  - 2
+#  - 3
+#  - 4
+#  - 5
+#  - 6
+#  - 7
+#  - 8
+#  - 9
+#  - 10
+#  - 11
+#  - 12
+#GROUP_BY : none Weekday  Year Month Week
+group_by: Year
+chart_type: bar
