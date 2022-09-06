@@ -48,8 +48,8 @@ TIMES = [
         ]
 
 MONTHS_EXCLUDE = [
-        #    1,
-        #    2,
+            1,
+            2,
         #   3,
         #    4,
         #     5,
@@ -94,14 +94,14 @@ def fixNulls(data):
         data[col] = data[col].astype(pd.Int64Dtype())
     
 
-DIR = "Data"
-OUTPUT_FILE_NAME = "collated-footfall-test.csv"
+URL_BASE = "https://open-innovations.github.io/traffic-growth/data/leeds/"
+OUTPUT_FILE_NAME = "output_csv//collated-footfall-test.csv"
 
 
 output = pd.DataFrame({"Date" : []})
 for fName in sensors:
-    file = os.path.join(DIR,fName)
-    sensorData = pd.read_csv(file)
+    url = URL_BASE + fName
+    sensorData = pd.read_csv(url)
     pSensorData =  pd.DataFrame({"Date" : getDates(sensorData),sensors[fName] : getDailyTotals(sensorData)})
     pSensorData = filterByDate(pSensorData,startDate=sDate,endDate=eDate)
     output = pd.merge(output,pSensorData,how="outer",left_on="Date",right_on="Date") 
