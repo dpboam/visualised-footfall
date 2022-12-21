@@ -128,8 +128,3 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Working folders
-output_csv/
-output_vis/
-data/
-config/

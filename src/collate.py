@@ -2,10 +2,12 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import yaml
+import sys
 
-with open("config_template.yml") as f:
+PATH = sys.argv[1] if len(sys.argv) >= 2 else 'config_template.yml'
+with open(PATH) as f:
     PARAMS = yaml.safe_load(f) 
-print(PARAMS)
+
 ISO_DATE_FORMAT = '%Y-%m-%d'
 def getDates(sensorData):
     return pd.to_datetime(sensorData["Date"],format=ISO_DATE_FORMAT)
@@ -37,7 +39,7 @@ def fixNulls(data):
     
 
 URL_BASE = "https://open-innovations.github.io/traffic-growth/data/leeds/"
-OUTPUT_FILE_NAME = "output_csv//collated-footfall-test.csv"
+
 
 
 output = pd.DataFrame({"Date" : []})
@@ -68,4 +70,6 @@ plt.show()
 #print(output)
 showIndex = GROUP_BY != "none"
 
+OUTPUT_FILE_DIR = "output_csv"
+OUTPUT_FILE_NAME = os.path.join(OUTPUT_FILE_DIR,PARAMS["file_name"]+ ".csv")
 output.to_csv(OUTPUT_FILE_NAME,index=showIndex,date_format=ISO_DATE_FORMAT)
